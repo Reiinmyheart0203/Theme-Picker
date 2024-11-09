@@ -1,0 +1,89 @@
+:root {
+  --border-radius: 3px;
+  transition: all 0.4s ease;
+}
+
+:root,
+[data-selected-theme="green"] {
+  --color-background: #D8E3E7;
+  --color-text: #4A5D63;
+  --color-accent: #8A9A9E;
+}
+
+[data-selected-theme="blue"] {
+  --color-background: #CCD1D9;
+  --color-text: #4C5962;
+  --color-accent: #89929C;
+}
+
+[data-selected-theme="pink"] {
+  --color-background: #D8CDE2;
+  --color-text: #5A4A66;
+  --color-accent: #9E8FB2;
+}
+
+[data-selected-theme="orange"] {
+  --color-background: #EDE0D4;
+  --color-text: #8C756A;
+  --color-accent: #BCA390;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  transition: background-color 0.5s ease, color 0.5s ease, transform 0.4s ease;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.35);
+  padding: 3rem 4rem;
+  border: 2px solid var(--color-text);
+  border-radius: var(--border-radius);
+  max-width: 90vw;
+  transition: transform 0.35s;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.theme-switcher {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0 1rem;
+}
+
+button[data-theme] {
+  padding: 0.75rem 1.25rem;
+  font-size: clamp(1rem, 5vw, 1.312rem);
+  color: var(--color-text);
+  border: 2px solid var(--color-text);
+  background: transparent;
+  transition: background-color 0.5s ease, color 0.5s ease, transform 0.3s ease;
+}
+
+button[data-theme][aria-pressed="true"] {
+  background-color: var(--color-text);
+  color: var(--color-background);
+}
+
+button[data-theme]:is(:hover, :focus) {
+  box-shadow: 0 0 0 2px var(--color-accent) inset;
+}
+
+button[data-theme]:active {
+  transform: scale(0.9);
+  opacity: 0.7;
+}
